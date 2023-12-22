@@ -44,11 +44,11 @@
       }
     }
   }
-}
-.overlay {
-  background-color: rgba(0, 0, 0, 0.50);
-  width: 100%;
-  z-index: 998;
-  height: calc(100vh + 120px);
-  pointer-events: none;
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    z-index: 998;
+    height: calc(100vh + 120px);
+    pointer-events: none;
+  }
 }

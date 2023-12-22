@@ -11,7 +11,12 @@ const BlockElement = ({ onDragStart, id, name }) => {
         className="be-box"
         id={id}
       >
-        <img id={id} className="be-box-img" src={gripVerticalIcon} />
+        <img
+          id={id}
+          className="be-box-img"
+          src={gripVerticalIcon}
+          alt="grip-icon"
+        />
         <p id={id}>{name}</p>
       </div>
     </div>
