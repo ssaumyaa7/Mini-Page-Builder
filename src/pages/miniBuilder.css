@@ -30,6 +30,9 @@
       text-align: left;
       .block-title {
         color: white;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: normal;
       }
       .export-btn {
         width: fit-content;
