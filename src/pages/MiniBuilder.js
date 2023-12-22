@@ -1,3 +1,4 @@
+// main mini builder page rendering all components
 import React from "react";
 import BlockElement from "../components/BlockElement/BlockElement";
 import Modal from "../components/Modal/Modal";
@@ -22,6 +23,7 @@ const MiniBuilder = ({
 }) => {
   return (
     <div className="mini-builder-main">
+      {/* Modal opens when user edits or adds new element */}
       {modalOpen && (
         <Modal
           prevEl={currentEl}
@@ -40,6 +42,7 @@ const MiniBuilder = ({
           onDragOver={(e) => onDragOver(e)}
           onDragStart={(e) => onDragStart(e)}
         >
+          {/* Renders all list of element on the page */}
           {list?.map((el) => (
             <div
               onKeyDown={(e) => handleKeyDown(e, el)}
@@ -51,6 +54,7 @@ const MiniBuilder = ({
             </div>
           ))}
         </div>
+        {/* Sidebar blocks component */}
         <div className="drop-block" onDragOver={(e) => onDragOver(e)}>
           <h5 className="block-title">{STRINGS.blocks.text}</h5>
           {ELEMENT_INFO.map((el) => (
@@ -61,6 +65,7 @@ const MiniBuilder = ({
               onDragStart={onDragStart}
             />
           ))}
+          {/* Button to download page configuration */}
           <button className="export-btn" onClick={exportPageConfiguration}>
             {STRINGS.button.text}
           </button>

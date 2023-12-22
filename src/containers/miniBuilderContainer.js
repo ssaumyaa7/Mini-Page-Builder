@@ -1,3 +1,4 @@
+// Higher order component rendering mini builder page
 import React, { useEffect, useMemo, useState } from "react";
 import MiniBuilder from "../pages/MiniBuilder";
 
@@ -59,46 +60,55 @@ const miniBuilderContainer = (WrappedComponent) => () => {
     }
   };
 
-  const handleCancel = () => {
+// Function to handle the cancellation of changes in the modal
+const handleCancel = () => {
+  setModalOpen(false);
+};
+
+// Function to handle saving changes from the modal
+const handleSaveChanges = (inputValues) => {
+  if (inputValues.text) {
+    // Update the list of items either by modifying an existing item or adding a new one
+    setList((prevList) =>
+      currentEl
+        ? prevList.map((el) =>
+            el.id === currentEl.id ? { ...el, ...inputValues } : el
+          )
+        : [...prevList, inputValues]
+    );
     setModalOpen(false);
-  };
+    return;
+  }
+  // If 'text' is not present, show an alert
+  alert("Please enter text");
+};
 
-  const handleSaveChanges = (inputValues) => {
-    if (inputValues.text) {
-      setList((prevList) =>
-        currentEl
-          ? prevList.map((el) =>
-              el.id === currentEl.id ? { ...el, ...inputValues } : el
-            )
-          : [...prevList, inputValues]
-      );
-      setModalOpen(false);
-      return;
-    }
-    alert("Please enter text");
-  };
+// Function to handle key events (e.g., Enter or Delete) on items in the list
+const handleKeyDown = (e, el) => {
+  if (e.key === "Delete") {
+    // Remove the item from the list based on its ID
+    setList((prevList) => prevList.filter((item) => item.id !== el.id));
+    setCurrentEl(null);
+  }
+  // Check if the pressed key is 'Enter'
+  if (e.key === "Enter") {
+    setCurrentEl(el);
+    setModalOpen(true);
+  }
+};
 
-  const handleKeyDown = (e, el) => {
-    if (e.key === "Delete") {
-      setList((prevList) => prevList.filter((item) => item.id !== el.id));
-      setCurrentEl(null);
-    }
-    if (e.key === "Enter") {
-      setCurrentEl(el);
-      setModalOpen(true);
-    }
-  };
+// Function to export the current page configuration as a JSON file
+const exportPageConfiguration = () => {
+  const jsonString = JSON.stringify(list, null, 2);
+  const blob = new Blob([jsonString], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "mini_builder_page_configuration.json";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+};
 
-  const exportPageConfiguration = () => {
-    const jsonString = JSON.stringify(list, null, 2);
-    const blob = new Blob([jsonString], { type: "application/json" });
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = "mini_builder_page_configuration.json";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  };
   return (
     <WrappedComponent
       modalOpen={modalOpen}

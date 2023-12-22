@@ -1,6 +1,7 @@
+// Sidebar block component having three fields
 import React from "react";
-import "./blockElement.css";
 import gripVerticalIcon from "../../assets/images/grip-vertical.svg";
+import "./blockElement.css";
 
 const BlockElement = ({ onDragStart, id, name }) => {
   return (

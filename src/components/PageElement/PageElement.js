@@ -1,7 +1,9 @@
+// Element rendered on page showing the list of all element with user configured view
 import React, { useState } from "react";
 import "./pageElement.css";
 
 const PageElement = ({ el }) => {
+  // The border turns red on selection of element
   const [isSelected, setIsSelected] = useState(false);
 
   const onPageElementClick = () => {

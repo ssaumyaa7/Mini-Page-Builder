@@ -1,3 +1,4 @@
+// All strings (copy) present in project added here for better readability and future updates
 const MODAL = {
   label: {
     text: "Edit Label",

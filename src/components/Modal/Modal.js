@@ -1,3 +1,4 @@
+// Modal - opens up when element is to edited or new element is added
 import React, { useState } from "react";
 import crossIcon from "../../assets/images/cross.svg";
 import MINI_BUILDER_STRINGS from "../../strings/miniBuilderStrings";
@@ -14,6 +15,7 @@ const Modal = ({ prevEl, handleCancel, handleSaveChanges }) => {
       y: "",
       fs: "",
       fw: "",
+      // Unique id for every element
       id: generateUniqueId(),
     }
   );
@@ -78,6 +80,7 @@ const Modal = ({ prevEl, handleCancel, handleSaveChanges }) => {
   );
 };
 
+// Input element having label and input field for taking info about position, font size, font weight
 const InputElement = ({ prevValue, id, text, onChange }) => {
   const [value, setValue] = useState(prevValue || "");
   const handleChangeLocal = (e) => {
