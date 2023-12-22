@@ -1,0 +1,54 @@
+.mini-builder-main {
+  height: calc(100vh + 120px);
+  position: relative;
+
+  .mini-builder-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    .mini-builder-bg {
+      background: #f3f3f3;
+    }
+    .drop-target {
+      width: 80%;
+      padding: 5px;
+      position: relative;
+      .be-box {
+        width: 15%;
+      }
+      .drop-page-element {
+        position: relative;
+      }
+    }
+    .drop-block {
+      background: #2d2d2d;
+      padding-left: 24px;
+      padding-right: 24px;
+      width: 20%;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      .block-title {
+        color: white;
+      }
+      .export-btn {
+        width: fit-content;
+        border: 0px;
+        border-radius: 2px;
+        background: #0044c1;
+        color: var(--Gray-gray-1, #fff);
+        font-size: 12px;
+        padding: 8px 16px;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.overlay {
+  background-color: rgba(0, 0, 0, 0.50);
+  width: 100%;
+  z-index: 998;
+  height: calc(100vh + 120px);
+  pointer-events: none;
+}

@@ -1,0 +1,11 @@
+.be-box {
+  display: flex;
+  border-radius: 4px;
+  background: #fff;
+  padding-left: 12px;
+  margin-bottom: 8px;
+  cursor: grabbing;
+  .be-box-img {
+    padding-right: 8px;
+  }
+}
