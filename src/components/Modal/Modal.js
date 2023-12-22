@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import "./modal.css";
 import crossIcon from "../../assets/images/cross.svg";
+import MINI_BUILDER_STRINGS from "../../strings/miniBuilderStrings";
 import generateUniqueId from "../../utils/randomIdGenerator";
+import "./modal.css";
+
+const STRINGS = MINI_BUILDER_STRINGS.MODAL;
 
 const Modal = ({ prevEl, handleCancel, handleSaveChanges }) => {
   const [inputValues, setInputValues] = useState(
@@ -29,7 +32,7 @@ const Modal = ({ prevEl, handleCancel, handleSaveChanges }) => {
   return (
     <div className="modal-wrapper">
       <div className="modal-header">
-        <p className="modal-title">Edit Label</p>
+        <p className="modal-title">{STRINGS.label.text}</p>
         <img
           className="modal-icon"
           src={crossIcon}
@@ -69,7 +72,7 @@ const Modal = ({ prevEl, handleCancel, handleSaveChanges }) => {
         onChange={handleChange}
       />
       <button type="button" className="btn-primary" onClick={onSave}>
-        Save Changes
+        {STRINGS.button.text}
       </button>
     </div>
   );

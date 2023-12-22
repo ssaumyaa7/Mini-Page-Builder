@@ -2,8 +2,11 @@ import React from "react";
 import BlockElement from "../components/BlockElement/BlockElement";
 import Modal from "../components/Modal/Modal";
 import PageElement from "../components/PageElement/PageElement";
-import elementInfo from "../data/elementInfo";
+import MINI_BUILDER_STRINGS from "../strings/miniBuilderStrings";
 import "./miniBuilder.css";
+
+const STRINGS = MINI_BUILDER_STRINGS.BUILDER_PAGE;
+const ELEMENT_INFO = MINI_BUILDER_STRINGS.ELEMENT_INFO;
 
 const MiniBuilder = ({
   modalOpen,
@@ -49,8 +52,8 @@ const MiniBuilder = ({
           ))}
         </div>
         <div className="drop-block" onDragOver={(e) => onDragOver(e)}>
-          <h5 className="block-title">BLOCKS</h5>
-          {elementInfo.map((el) => (
+          <h5 className="block-title">{STRINGS.blocks.text}</h5>
+          {ELEMENT_INFO.map((el) => (
             <BlockElement
               key={el.id}
               id={el.id}
@@ -59,7 +62,7 @@ const MiniBuilder = ({
             />
           ))}
           <button className="export-btn" onClick={exportPageConfiguration}>
-            Export Configuration
+            {STRINGS.button.text}
           </button>
         </div>
       </div>
