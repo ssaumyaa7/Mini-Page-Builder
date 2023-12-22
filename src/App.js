@@ -1,9 +1,9 @@
-import MiniBuilder from "./pages/MiniBuilder";
+import MiniBuilderContainer from "./containers/miniBuilderContainer";
 
 function App() {
   return (
     <div>
-      <MiniBuilder />
+      <MiniBuilderContainer />
     </div>
   );
 }
