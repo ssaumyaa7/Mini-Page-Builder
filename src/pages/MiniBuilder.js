@@ -20,6 +20,8 @@ const MiniBuilder = ({
   handleKeyDown,
   list,
   exportPageConfiguration,
+  handleUndo,
+  handleRedo,
 }) => {
   return (
     <div className="mini-builder-main">
@@ -69,6 +71,8 @@ const MiniBuilder = ({
           <button className="export-btn" onClick={exportPageConfiguration}>
             {STRINGS.button.text}
           </button>
+          <button onClick={handleUndo}>Undo</button>
+          <button onClick={handleRedo}>Redo</button>
         </div>
       </div>
     </div>
